@@ -1,19 +1,46 @@
-import Nome from "./components/Nome";
+
 import { useState } from "react";
 
 function App() {
 
-  const [aluno, setAluno] = useState('Dudu');
+ const [nome, setNome] = useState('');
 
-  function handleChangeName (nome) {
-    setAluno(nome);
-  }
+ const [email, setEmail] = useState('');
+
+ const [idade, setIdade] = useState('');
+
+ const [user, setUser] = useState({});
+
+ function handleRegister(e) {
+  e.preventDefault();
+
+  setUser({
+    nome: nome,
+    idade: idade,
+    email: email,
+  })
+ }
 
   return (
     <>
-      <h2 className="container">Componente App</h2><br/>
-      <h2>Olá: {aluno}</h2>
-      <button onClick={() => handleChangeName('Duduzão')}>Mudar Nome</button>
+    <h1> Cadastrando usuário</h1>
+      <form onSubmit={handleRegister}>
+        <label>Nome: </label><br/>
+        <input placeholder="Digite o seu nome" value={nome} onChange={(e) => setNome(e.target.value)}></input><br/>
+
+        <label>Email: </label><br/>
+        <input placeholder="Digite o seu e-mail" value={email} onChange={(e) => setEmail(e.target.value)}></input><br/>
+
+        <label>Idade: </label><br/>
+        <input placeholder="Digite a sua idade" value={idade} onChange={(e) => setIdade(e.target.value)}></input><br/>
+
+        <button type="submit">Registrar</button>
+      </form>
+      <br/><br/>
+      <span>Bem vindo: {user.nome}</span><br/>
+      <span>Idade: {user.idade}</span><br/>
+      <span>Email: {user.email}</span><br/>
+
     </>
   )
 }
