@@ -5,15 +5,15 @@ function App() {
 
   const [aluno, setAluno] = useState('Dudu');
 
-  function handleChangeName () {
-    setAluno('Duduzinho');
+  function handleChangeName (nome) {
+    setAluno(nome);
   }
 
   return (
     <>
       <h2 className="container">Componente App</h2><br/>
       <h2>Olá: {aluno}</h2>
-      <button onClick={handleChangeName}>Mudar Nome</button>
+      <button onClick={() => handleChangeName('Duduzão')}>Mudar Nome</button>
     </>
   )
 }
