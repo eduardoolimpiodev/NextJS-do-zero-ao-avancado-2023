@@ -1,5 +1,5 @@
 
-import { Container, Head, Titulo} from "./styles"; 
+import { BemVindo, Container, Head, Titulo} from "./styles"; 
 
 function App() {
   return (
@@ -7,7 +7,9 @@ function App() {
       <Head>
         <Titulo>Projeto Styled</Titulo>
       </Head>
-
+      <BemVindo cor="00FF00" tamanho={30}>
+        Bem vindo ao sistema
+      </BemVindo>
     </Container>
   );
 }
