@@ -20,6 +20,9 @@ const [tarefas, setTarefas] = useState([
  function handleRegister(e) {
   e.preventDefault();
 
+  setTarefas([...tarefas, input]);
+  setInput('');
+
   // setUser({
   //   nome: nome,
   //   idade: idade,
@@ -45,9 +48,7 @@ const [tarefas, setTarefas] = useState([
       <br/><br/>
       <ul>
         {tarefas.map(tarefa => (
-          <span>
             <li key={tarefa}>{tarefa}</li>
-          </span>
         ))}
       </ul>
       {/* <span>Bem vindo: {user.nome}</span><br/>
